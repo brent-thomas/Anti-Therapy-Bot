@@ -41,7 +41,7 @@ model = NeuralNet(input_size, hidden_size, output_size)
 model.load_state_dict(model_state)
 model.eval()
 
-@app.route('/api/chat', methods=['POST'])
+@app.route('/api/chat', methods=['GET','POST'])
 def chat():
     user_input = request.json['user_input']
     response = get_response(user_input)
