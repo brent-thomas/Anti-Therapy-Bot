@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import random
 import json
 import torch
@@ -19,7 +20,7 @@ no_pattern_match_responses = [
 ]
 
 app = Flask(__name__)
-
+CORS(app)
 # Load the model and intents just once when the Lambda function is initialized
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
